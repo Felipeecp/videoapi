@@ -1,30 +1,17 @@
-package com.luiz.videoapi.models;
+package com.luiz.videoapi.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.luiz.videoapi.models.Video;
 
-@Entity
-public class Video {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class VideoDto {
     private Long id;
-
     private String titulo;
-
     private String descricao;
-
     private String url;
-
-    public Video() {
-    }
-
-    public Video(String titulo, String descricao, String url) {
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.url = url;
+    public VideoDto(Video video) {
+        this.id = video.getId();
+        this.titulo = video.getTitulo();
+        this.descricao = video.getDescricao();
+        this.url = video.getUrl();
     }
 
     public Long getId() {
